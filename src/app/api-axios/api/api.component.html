@@ -1,0 +1,15 @@
+<h1>API Global dengan axios</h1>
+
+<form (ngSubmit)="addUser()">
+  <input type="text" name="first_name" [(ngModel)]="dataPost.first_name" />
+  <input type="text" name="email" [(ngModel)]="dataPost.email" />
+  <input type="text" name="last_name" [(ngModel)]="dataPost.last_name" />
+  <button>Add User</button>
+</form>
+
+<ul *ngFor="let item of items">
+  <li>{{ item.id }}</li>
+  <li>{{ item.first_name }}</li>
+  <li>{{ item.last_name }}</li>
+  <li>{{ item.avatar }}</li>
+</ul>

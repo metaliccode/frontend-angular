@@ -1,0 +1,43 @@
+<div class="container mb-5 mt-3">
+  <h1 class="text-center">Data Members</h1>
+</div>
+
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Full Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Age</th>
+        <th scope="col">Job</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr *ngFor="let item of members"> -->
+      <tr *ngFor="let item of members.data">
+        <th scope="row">{{ item.id }}</th>
+        <td>{{ item.name }}</td>
+        <td>{{ item.email }}</td>
+        <td>{{ item.age }}</td>
+        <td>{{ item.job }}</td>
+        <td>
+          <button
+            class="btn btn-warning"
+            routerLink="/edit-member/{{ item.id }}"
+          >
+            Edit
+          </button>
+          &nbsp;
+          <button class="btn btn-danger" (click)="deleteData(item.id)">
+            Hapus
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-outline-primary" routerLink="/features">
+    Add Member
+  </button>
+</div>

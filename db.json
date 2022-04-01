@@ -1,0 +1,19 @@
+{
+  "products": {},
+  "members": [
+    {
+      "name": "Dzarin",
+      "id": 1,
+      "email": "zarin@gmail.com",
+      "age": "12",
+      "job": "Accounting "
+    },
+    {
+      "name": "Sasa",
+      "email": "sasa@gmail.com",
+      "age": "20",
+      "job": "UI/UX",
+      "id": 5
+    }
+  ]
+}

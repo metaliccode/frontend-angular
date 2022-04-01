@@ -1,0 +1,114 @@
+<section class="container">
+  <h1 class="text-center mt-3">{{ title }}</h1>
+  <p class="teks">{{ 2 + 2 * 2 }} , {{ "Dasar Angular Js" == title }}</p>
+  <button (click)="getName()" class="btn btn-primary">Click Me</button>
+  <br />
+  <button (click)="getJudul(1000)" class="btn btn-primary">Click Number</button>
+  <h3 class="text-center mt-3">Events | keyup</h3>
+  <hr />
+  <button (click)="getTraining('fullstack')" class="btn btn-success">
+    Click
+  </button>
+  <!-- <input type="text" placeholder="Key up ..." (keyup)="getData('keyup')" />
+   -->
+  <input
+    type="text"
+    #box1
+    placeholder="Key up ..."
+    (keyup)="getData(box1.value)"
+  />
+  <input
+    type="text"
+    #box2
+    placeholder="Key down ..."
+    (keydown)="getData(box2.value)"
+  />
+  <input
+    type="text"
+    #box3
+    placeholder="Blur ..."
+    (blur)="getData(box3.value)"
+  />
+  <input
+    type="text"
+    #box4
+    placeholder="input ..."
+    (input)="getData(box4.value)"
+  />
+  <br />
+  <h5 (mouseover)="getData('mouseover')">mouseover</h5>
+  <h5 ((mouseleave))="getData('mouseleave')">mouseleave</h5>
+  <h5 (mouseenter)="getData('mouseenter')">mouseenter</h5>
+  <hr />
+  <!-- data akan diambil ketika user klik btn -->
+  <input type="text" #box placeholder="username ..." />
+  <button (click)="getValue(box.value)">submit</button>
+  <br />
+  Value yang diinputkan : {{ dataKosong }}
+  <br />
+  <hr />
+  <h3>Property Binding</h3>
+  <!-- interpolasi -->
+  <input
+    type="text"
+    placeholder="interpolasi..."
+    value="{{ nama }}"
+    disabled="{{ disabled }}"
+  />
+  <br />
+  <!-- property binding -->
+  <input
+    type="text"
+    placeholder="binding..."
+    [value]="judul"
+    [disabled]="disabled"
+  />
+  <br />
+  <hr />
+  <h3>If Kondisi</h3>
+  <h1 *ngIf="tanya == 'yes'; then ifBlock; else elseBlock"></h1>
+  <ng-template #ifBlock>
+    <h1>{{ nama }}</h1>
+  </ng-template>
+  <ng-template #elseBlock>
+    <h1>{{ judul }}</h1>
+  </ng-template>
+  <hr />
+  <h3>Multi Kondisi</h3>
+  <ng-template [ngIf]="color === 'red'">
+    <h6 style="color: red">Warna Merah</h6>
+  </ng-template>
+  <ng-template [ngIf]="color === 'green'">
+    <h6 style="color: green">Warna Hijau</h6>
+  </ng-template>
+  <ng-template [ngIf]="color === 'blue'">
+    <h6 style="color: blue">Warna Biru</h6>
+  </ng-template>
+  <!-- switch -->
+  <h2>Multi kondisi Switch</h2>
+  <div [ngSwitch]="color">
+    <h5 *ngSwitchCase="'red'" style="color: red">Red</h5>
+    <h5 *ngSwitchCase="'green'" style="color: green">Green</h5>
+    <h5 *ngSwitchCase="'blue'" style="color: blue">Blue</h5>
+    <h5 *ngSwitchDefault>Warna Tidak dikenali</h5>
+  </div>
+  <br />
+  <hr />
+  <h3>Looping</h3>
+  <ul *ngFor="let item of users">
+    <li>{{ item }}</li>
+  </ul>
+  <h3 *ngFor="let ud of userDetails">Name is : {{ ud.email }}</h3>
+  <h3 *ngFor="let ud of userDetails">Name is : {{ ud.nama }}</h3>
+  <br />
+  <hr />
+  <h1>Nested For / Perulangan bersarang</h1>
+  <ul *ngFor="let item of userDetails">
+    <li>{{ item.nama }}</li>
+    <li>{{ item.email }}</li>
+    <!-- <li>{{ item.accounts }}</li> -->
+    <ul *ngFor="let a of item.accounts">
+      <li>{{ a }}</li>
+    </ul>
+  </ul>
+</section>
